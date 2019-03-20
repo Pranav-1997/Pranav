@@ -1,0 +1,46 @@
+package com.niit;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Welcomeservlet
+ */
+public class Welcomeservlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Welcomeservlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Login at: ").append(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(System.currentTimeMillis())));
+		 response.setContentType("text/html");  
+		    PrintWriter out = response.getWriter();  
+		          
+		    String n=request.getParameter("username");  
+		    out.println("<html> ");
+		    out.println("<body>");
+		    out.println("<h1>'welcome'"+n+"<h1>");
+		    out.println("</body>");
+		    out.println("</html>");
+		          
+		    out.close(); 
+	}
+
+}
